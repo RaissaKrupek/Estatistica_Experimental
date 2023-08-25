@@ -153,7 +153,7 @@ with(dados,
      dic(Genotipo,
          prod,
          mcomp = "duncan"))
-
+#parou aqui -------------------------------------
 
 library(multcomp)
 levels(dados$Genotipo)
