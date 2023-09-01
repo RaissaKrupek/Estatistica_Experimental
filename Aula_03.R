@@ -47,7 +47,7 @@ modelo.aov <- aov(prod ~ Genotipo,
 modelo.aov
 
 anova(modelo.aov)
-
+# os * sao o nivel de significancia (P valor muito menor que )
 
 #' - Resíduos ordinários ou simples
 #' $$\tilde{e}_{ij} = y_{ij} - \hat{\mu}_{i}.$$
@@ -125,6 +125,16 @@ library(ExpDes.pt)
 
 ?dic
 
+#Teste de homogeneidade de variancias 
+with(dados,
+     dic(Genotipo,
+         prod, quali=TRUE, hvar= "levene"))
+
+with(dados,
+     dic(Genotipo,
+         prod, quali=TRUE, hvar= "bartlett"))
+
+
 #teste t-Student
 with(dados,
      dic(Genotipo,
@@ -155,14 +165,16 @@ with(dados,
      dic(Genotipo,
          prod,
          mcomp = "duncan"))
-#parou aqui -------------------------------------
 
+
+install.packages("multcomp")
 library(multcomp)
 levels(dados$Genotipo)
 summary(glht(modelo.aov,
              linfct = mcp(Genotipo = rbind("A-B" = c(1, -1, 0, 0),
                                            "C-B" = c(0, -1, 1, 0),
                                            "D-B" = c(0, -1, 0, 1)))))
+#consigo fixar como referencia um determinado nivel - ideia de contraste 
 
 
 #' # Contrastes ortogonais
@@ -201,3 +213,11 @@ summary(glht(modelo.aov,
 summary(glht(modelo.aov,
              linfct = mcp(Genotipo = 
                             rbind("B-C" = c(0, 1, -1, 0)))))
+
+
+# CONSIDERACOES 
+#residuos nao podem ter um padrao, devem ser aleatorios e independentes (dispostos no grafico de forma aleatoria)
+#Grafico de pontos do erro nao deve seguir um padrao 
+#Mediana eh uma medida mais robusta em relacao a media(que eh deslocada devido a extremos)
+#no shapiro-wilk, a Ho eh que seja normal
+#barrinhas dos graficos ortogonais representam as medias 
