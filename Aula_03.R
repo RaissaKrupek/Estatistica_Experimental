@@ -6,7 +6,9 @@
 
 #Homogeneidade eh mais importante que a normalidade
 #Tratamento deve ser sempre fator
-#' *Um estudo foi desenvolvido com quatro genótipos e cinco repetições, seguindo um delineamento inteiramente casualizado, tendo-se observado o peso das espigas de cada parcela (10 m$^2$)*.
+#' *Um estudo foi desenvolvido com quatro genótipos e cinco repetições,*
+#' *seguindo um delineamento inteiramente casualizado, tendo-se observado*
+#' *o peso das espigas de cada parcela (10 m$^2$)*.
 #'
 #' # Análise dos dados
 #'
@@ -63,7 +65,7 @@ curve(dnorm(x, mean = mean(residuo1),
 #teste de hipotese para residuos de pressuposto de dist normal
 shapiro.test(residuo1) #Ho: dist eh normal/ Ha: dist nao eh normal
 # w eh o valor da estatistica do teste
-#  valor eh maior que 5%, portanto eh normal
+# P valor eh maior que 5%, portanto eh normal (nao se rejeita a hipotese nula)
 
 
 #'
@@ -117,7 +119,7 @@ curve(dnorm(x, mean = mean(residuo1),
 #' 
 #' ## Usando a biblioteca ExpDes.pt
 
-install.packages("ExpDes.pt", dependencies = TRUE)
+#install.packages("ExpDes.pt", dependencies = TRUE)
 library(ExpDes.pt)
 #o defaut dele eho teste de Tukay
 
@@ -131,7 +133,7 @@ with(dados,
 # 2 e 3 nao tem diferenca significativa estatisticamente em media
 # se os intervalos de confianca(box-plot) se intersectarem significa que nao ha diferenca significativa
 # as letras (grupos) mostram quais se diferem; se ha a mesma letra, nao se diferem
-#basta conter o 0 -> em 95% das vezes contem o 0
+#basta conter o 0 -> em 95% das vezes contem o 0 para um alfa de 5%
 
 
 #teste t com a correcao de Bonferroni
