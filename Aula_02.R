@@ -11,7 +11,7 @@ sorteio_nome <- sample(vec3,1)
 sorteio_nome 
 #vetor, sorteio de apenas 1
 #default do sample eh sempre sem repeticao, para repetir: replace = TRUE
-#default eh padrao de fabrica
+#default eh o padrao de fabrica
 
 cbind(vec1,vec3)
 #associacao de 2 vetores; precisam ser do mesmo tamanho
@@ -25,7 +25,9 @@ cbind(vec1,vec3)
 #' ---
 
 
-#' *Um estudo foi desenvolvido com cinco genótipos e quatro repetições, seguindo um delineamento inteiramente casualizado, tendo-se observado o peso das espigas de cada parcela (10 m$^2$)*.
+#' *Um estudo foi desenvolvido com cinco genótipos e quatro repetições,*
+#' *seguindo um delineamento inteiramente casualizado, tendo-se observado*
+#' *o peso das espigas de cada parcela (10 m$^2$)*.
 
 #' # Planejamento do experimento
 #' 
@@ -40,13 +42,14 @@ library(agricolae)
 
 trt <- LETTERS[1:4]
 trt
-#funcao LETTERS permite construir as letras do alfabelo em letras maiusculas, e letters em letras minusculas
+#funcao LETTERS permite construir as letras do alfabelo em letras maiusculas,e letters em letras minusculas
+#os termos referen-se ao intervalo das letras do alfabeto
 delineamento <- design.crd(trt,
                            r = 5,
                            serie = 0)
 delineamento
 #esta funcao eh do pacote agricolae
-#r eh o numero de repeticoes 
+#r eh o numero da repeticao  
 #serie enumera as parcelas (quando coloco 1 ele coloca uma dezena a mais, eh apenas a forma de enumerar)
 #plot eh a parcela
 
@@ -82,11 +85,10 @@ library(tidyverse)
 #' #Verificando a estrutura dos dados
 str(dados)
 glimpse(dados)
-#da um trat diferente para a variavei continua(double)
+#da um tratamento diferente para a variavel continua(double)
 dados <- dados %>% 
   mutate(Genotipo = factor(Genotipo))
-#%>% significa atribuir - neste caso transformamos o genotipo em fator (variavel qualitativa)
-#atribuindo genotipo a fator
+#%>% significa atribuir - neste caso transformamos o genotipo em fator (variavel qualitativa) atribuindo genotipo a fator
 str(dados)
 
 
