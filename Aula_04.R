@@ -155,3 +155,5 @@ with(dados,
          quali = FALSE,
          sigT = 0.05,
          sigF = 0.05))
+
+# O teste de homogeneidade eh o teste de normalidade
