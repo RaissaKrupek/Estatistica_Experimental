@@ -7,6 +7,7 @@
 #Vamos partir de um modelo considerando os tratamentos de forma qualitativo(fator) - teste geral da anova para ver se ha diferenca significativa entre os tratamentos,
 #   e quando for para regressao polinomial sera quantitativo
 #Na regressao nao estou interessada em comparar media, e sim ajustar uma curva
+#Queremos sempre um modelo que tenha algum erro 
 
 
 
